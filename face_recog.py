@@ -8,8 +8,7 @@ import cv2
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-e", "--encodings", required=True, help="path to serialized db of facial encodings")
-ap.add_argument("-y", "--display", type=int, default=1, help="whether or not to display output frame to screen")
-ap.add_argument("-d", "--detection-method", type=str, default="cnn", help="face detection model to use: either 'hog' or 'cnn'")
+ap.add_argument("-d", "--detection-method", type=str, default="hog", help="face detection model to use: either 'hog' or 'cnn'")
 args = vars(ap.parse_args())
 
 print("Loading encodings...")
@@ -57,12 +56,11 @@ while True:
         y = top - 15 if top -15 > 15 else top + 15
         cv2.putText(frame, name, (left, y), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2)
 
-    if args["display"] > 0:
-        cv2.imshow("Frame", frame)
-        key = cv2.waitKey(1) & 0xFF
+    cv2.imshow("Frame", frame)
+    key = cv2.waitKey(1) & 0xFF
 
-        if key == ord("q"):
-            break
+    if key == ord("q"):
+        break
 
 cv2.destroyAllWindows()
 vs.stop()
