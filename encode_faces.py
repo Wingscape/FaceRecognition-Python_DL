@@ -25,7 +25,6 @@ for (i, imagePath) in enumerate(imagePaths):
     rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     boxes = face_recognition.face_locations(rgb, model=args["detection_method"])
-
     encodings = face_recognition.face_encodings(rgb, boxes)
 
     for encoding in encodings:

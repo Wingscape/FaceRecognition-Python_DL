@@ -1,0 +1,11 @@
+How to create face recognition datasets via live camera:
+(Face Recognition Enrollment)
+
+1. on-site and physical access
+2. create special room
+3. Take in different lighting conditions
+4. Times of day
+5. Moods and emotional states
+
+what to-do:
+1. add confidence in encode or embeddings i guess
