@@ -2,11 +2,12 @@ from imutils import paths
 import face_recognition
 import numpy as np
 import argparse
+import imutils
 import shutil
 import cv2
 import os
 
-def align(image_path):
+def align(image_path, width=128, height=128):
     # load image and find face locations.
     image = face_recognition.load_image_file(image_path)
     rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -45,8 +46,8 @@ def align(image_path):
     # this location is in percentage.
     desiredLeftEye=(0.35, 0.35)
     #Set the croped image(face) size after rotaion.
-    desiredFaceWidth = 128
-    desiredFaceHeight = 128
+    desiredFaceWidth = width
+    desiredFaceHeight = height
 
     desiredRightEyeX = 1.0 - desiredLeftEye[0]
     
@@ -74,7 +75,7 @@ def align(image_path):
 
     # apply the affine transformation
     (w, h) = (desiredFaceWidth, desiredFaceHeight)
-    (y2,x2,y1,x1) = face_locations[0] 
+    # (y2,x2,y1,x1) = face_locations[0]
             
     output = cv2.warpAffine(rgb, M, (w, h), flags=cv2.INTER_CUBIC)
 
@@ -118,7 +119,10 @@ for (i, imagePath) in enumerate(imagePaths):
         os.mkdir(path_name)
     
     amount_pic += 1
-    img_item = str(amount_pic) + ".jpg"
+    img_item = "{}.png".format(str(amount_pic).zfill(5))
 
-    face_aligned = align(imagePath)
+    face_aligned = align(imagePath, 256, 256)
     cv2.imwrite(os.path.join(path_name, img_item), face_aligned)
+
+print("{} face images stored".format(amount_pic))
+print("Cleaning up...")

@@ -9,7 +9,7 @@ How to create face recognition datasets via live camera:
 
 what to-do:
 1. add confidence in encode or embeddings i guess (v)
-2. facial landmarks
+2. facial landmarks (v)
 3. liveness detection
 4. face recognition Enrollment
 4. dataset techniques
