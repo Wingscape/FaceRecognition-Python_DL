@@ -8,4 +8,9 @@ How to create face recognition datasets via live camera:
 5. Moods and emotional states
 
 what to-do:
-1. add confidence in encode or embeddings i guess
+1. add confidence in encode or embeddings i guess (v)
+2. facial landmarks
+3. liveness detection
+4. face recognition Enrollment
+4. dataset techniques
+5. siamase network for less datasets
