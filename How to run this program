@@ -1,3 +1,8 @@
+if you want to train liveness:
+1. python face_video.py --videos videos/fake.webm --images images/fake
+2. python face_video.py --videos videos/real.mp4 --images images/real --skip 6
+3. python livenet_faces.py --images images --model output_ln/liveness.model --le output_ln/le.pickle
+
 1. python face_dataset.py --dataset dataset
 2. python face_aligner.py --dataset dataset
 3. python encode_faces.py --dataset dataset_aligned --encodings output/encodings.pickle

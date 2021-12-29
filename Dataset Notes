@@ -6,6 +6,7 @@ How to create face recognition datasets via live camera:
 3. Take in different lighting conditions
 4. Times of day
 5. Moods and emotional states
+6. Take a differnt face poses
 
 what to-do:
 1. add confidence in encode or embeddings i guess (v)
