@@ -7,4 +7,9 @@ if you want to train liveness:
 2. python face_aligner.py --dataset dataset
 3. python encode_faces.py --dataset dataset_aligned --encodings output/encodings.pickle
 4. python train_model.py --encodings output/encodings.pickle --recognizer output/recognizer.pickle --le output/le.pickle
+
+if liveness detection is used:
+5. python face_recog.py --recognizer output/recognizer.pickle --le output/le.pickle --modelln output_ln/liveness.model --leln  output_ln/le.pickle
+
+if not:
 5. python face_recog.py --recognizer output/recognizer.pickle --le output/le.pickle
